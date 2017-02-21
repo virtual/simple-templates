@@ -13,12 +13,18 @@
       {% include 'templates/partials/header.njk' %}
     {% endblock header %}
 
+    
+    {% block carousel %}
+      {% include 'templates/partials/carousel.njk' %}
+    {% endblock carousel %}
+    
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           {% include 'templates/partials/sidebar.njk' %}
         </div>
         <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+        
           {% block body %}
             {% block content %}{% endblock content %}
           {% endblock body %}
@@ -31,7 +37,15 @@
     {% endblock footer %}
 
     {% block javascripts %}
+    
       <script src="{{roo}}js/app.js"></script>
+      <script>
+      $(function() {
+    console.log( "ready!" );
+    
+      $('.carousel').carousel()
+});
+      </script>
     {% endblock %}
   </body>
 </html>
